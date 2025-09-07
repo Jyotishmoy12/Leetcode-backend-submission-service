@@ -5,7 +5,8 @@ type ServerConfig = {
     PORT: number,
     DB_URL: string,
     REDIS_HOST: string,
-    REDIS_PORT: number
+    REDIS_PORT: number,
+    PROBLEM_SERVICE_URL: string
 }
 
 function loadEnv() {
@@ -19,5 +20,6 @@ export const serverConfig: ServerConfig = {
     PORT: Number(process.env.PORT) || 3001,
     DB_URL: process.env.DB_URL || '',
     REDIS_HOST: process.env.REDIS_HOST || '',
-    REDIS_PORT: Number(process.env.REDIS_PORT) || 6379
+    REDIS_PORT: Number(process.env.REDIS_PORT) || 6379,
+    PROBLEM_SERVICE_URL: process.env.PROBLEM_SERVICE_URL || ''
 };

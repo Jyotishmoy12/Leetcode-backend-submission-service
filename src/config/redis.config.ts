@@ -18,6 +18,6 @@ redis.on("error", (error)=>{
     logger.error("Redis connection error", error);
 })
 
-export const createRedisConnection = async ()=>{
+export const createNewRedisConnection = ()=>{
     return new Redis(redisConfig);
 }
