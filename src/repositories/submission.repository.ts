@@ -1,0 +1,49 @@
+import {
+  ISubmission,
+  SubmissionStatus,
+  Submission,
+} from "../models/submission.models";
+
+export interface ISubmissionRepository {
+  create(submissionData: Partial<ISubmission>): Promise<ISubmission>;
+  findById(id: string): Promise<ISubmission | null>;
+  findByProblemId(problemId: string): Promise<ISubmission[]>;
+  deleteById(id: string): Promise<boolean>;
+  updateStatus(
+    id: string,
+    status: SubmissionStatus
+  ): Promise<ISubmission | null>;
+}
+
+export class SubmissionRepository implements ISubmissionRepository {
+  async create(submissionData: Partial<ISubmission>): Promise<ISubmission> {
+    const newSubmission = new Submission(submissionData);
+    return newSubmission.save();
+  }
+
+  async findById(id: string): Promise<ISubmission | null> {
+    return Submission.findById(id);
+  }
+
+  async findByProblemId(problemId: string): Promise<ISubmission[]> {
+    const submission = await Submission.find({ problemId });
+    return submission;
+  }
+
+  async deleteById(id: string): Promise<boolean> {
+    const result = await Submission.findByIdAndDelete({ id });
+    return result !== null;
+  }
+
+  async updateStatus(
+    id: string,
+    status: SubmissionStatus
+  ): Promise<ISubmission | null> {
+    const submission = await Submission.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    );
+    return submission;
+  }
+}
