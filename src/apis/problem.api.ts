@@ -30,12 +30,6 @@ export async function getProblemById(
   try {
       const response: AxiosResponse<IProblemResponse> = await axios.get(
       `${serverConfig.PROBLEM_SERVICE_URL}/problems/${problemId}`,
-      {
-        timeout: 10000, // 10 second timeout
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
     );
 
     if (response.data.success) {

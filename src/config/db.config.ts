@@ -5,7 +5,6 @@ import { serverConfig } from ".";
 export const connectDB = async () => {
   try {
     const dbUrl = serverConfig.DB_URL;
-    console.log(dbUrl)
     await mongoose.connect(dbUrl);
     logger.info("Connected to mongoDB successfully");
 

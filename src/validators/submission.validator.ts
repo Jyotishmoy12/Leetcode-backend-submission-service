@@ -29,15 +29,7 @@ export const updateSubmissionSchema = z.object({
     ])
     .optional(),
 });
-export const findByStatusSchema = z.object({
-  status: z.enum([
-    SubmissionStatus.PENDING,
-    SubmissionStatus.ACCEPTED,
-    SubmissionStatus.REJECTED,
-    SubmissionStatus.COMPILING,
-    SubmissionStatus.WRONG_ANSWER,
-  ]),
-});
+
 export type CreateSubmissionDto = z.infer<typeof createSubmissionSchema>;
 export type UpdateSubmissionDto = z.infer<typeof updateSubmissionSchema>;
-export type FindByStatusDto = z.infer<typeof findByStatusSchema>;
+
