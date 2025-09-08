@@ -1,0 +1,6 @@
+{
+  "problemId": "68bef3472b59fb1de04eeee2",
+  "language": "cpp",
+  "code": "#include <bits/stdc++.h>\nusing namespace std;\nint main() { cout << \"Hello World\"; return 0; }",
+  "status": "pending"
+}

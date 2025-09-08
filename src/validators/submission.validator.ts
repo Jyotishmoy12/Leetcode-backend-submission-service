@@ -12,7 +12,7 @@ export const createSubmissionSchema = z.object({
       SubmissionStatus.REJECTED,
       SubmissionStatus.COMPILING,
       SubmissionStatus.WRONG_ANSWER,
-    ])
+    ]).optional()
 });
 
 export const updateSubmissionSchema = z.object({
